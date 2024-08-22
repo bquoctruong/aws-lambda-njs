@@ -1,4 +1,4 @@
-name: Build, Deploy to GCP Cloud Run / Lambda
+name: Build, Deploy to AWS Lambda
 
 on:
 
@@ -63,3 +63,7 @@ jobs:
          ECR_URI=${{ vars.ECR_URI }}
          docker tag ${{ vars.SERVICE }}:${{ github.sha }} $ECR_URI:latest
          docker push $ECR_URI:latest
+    - name: Deploy to AWS Lambda
+      run: |
+        aws lambda update-function-code --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
+        --image-uri ${{ vars.ECR_URI }}:latest
