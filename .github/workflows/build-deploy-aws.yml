@@ -74,7 +74,7 @@ jobs:
           aws-region: us-east-1
       - name: Deploy to AWS Lambda
         run: |
-          aws lambda update-function-code --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} \
+          aws lambda update-function-code --function-name ${{ vars.LAMBDA_FUNCTION_NAME }} \
             --zip-file fileb:///tmp/lambda_function.zip
     # - name: Download image artifact
     #   uses: actions/download-artifact@v4
