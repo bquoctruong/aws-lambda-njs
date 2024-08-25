@@ -16,6 +16,10 @@ const getContentType = (filePath) => {
             return 'image/jpeg';
         case '.png':
             return 'image/png';
+        case '.xml':
+            return 'image/svg+xml';
+        case '.svg':
+            return 'image/svg+xml';
         case '.html':
             return 'text/html';
         case '.css':
