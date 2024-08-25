@@ -12,6 +12,10 @@ const html = fs.readFileSync('index.html', { encoding: 'utf8' });
 const getContentType = (filePath) => {
     const extname = path.extname(filePath);
     switch (extname) {
+        case '.jpeg':
+            return 'image/jpeg';
+        case '.png':
+            return 'image/png';
         case '.html':
             return 'text/html';
         case '.css':
